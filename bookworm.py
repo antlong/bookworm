@@ -6,7 +6,7 @@ path = os.path.join(os.path.realpath(os.path.curdir) + '/books/')
 books = os.listdir(path)
 
 
-def create(num_words=20):
+def create(num_words=50, chars=''):
     for each_book in books:
         inputFile = open(path + each_book, 'r')
         text = inputFile.read()
@@ -26,7 +26,11 @@ def create(num_words=20):
         current_pair = (current_pair[1], next)
     random_text = re.sub(r'[\W]', ' ', random_text)
     random_text = re.sub(r'  ', ' ', random_text)
-    print random_text.strip()
+    selection = random_text.strip()
+    if chars:
+        return selection[0:int(chars)].strip()
+    else:
+        return selection.strip()
 
 if __name__ == "__main__":
     create()
