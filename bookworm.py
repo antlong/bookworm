@@ -5,11 +5,9 @@ import re
 path = os.path.join(os.path.realpath(os.path.curdir) + '/books/')
 books = os.listdir(path)
 
-
 def create(num_words=50, chars=''):
-    for each_book in books:
-        inputFile = open(path + each_book, 'r')
-        text = inputFile.read()
+    inputFile = open(path + books[random.randrange(0, len(books))], 'r')
+    text = inputFile.read()
     words = text.split()
     prefix = {}
     for i in range(len(words)-2):
@@ -33,4 +31,4 @@ def create(num_words=50, chars=''):
         return selection.strip()
 
 if __name__ == "__main__":
-    create()
+    print create()
