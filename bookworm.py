@@ -1,10 +1,10 @@
 import random
 import glob
-
 books = glob.glob('book_*.txt')
 text = open(random.choice(books), 'r').read()
 words = text.split()
 prefix = {}
+
 
 def create(num_words=50, chars=''):
     l = []
@@ -15,6 +15,3 @@ def create(num_words=50, chars=''):
     else:
         return ' '.join(l)
 
-
-if __name__ == "__main__":
-    create()
