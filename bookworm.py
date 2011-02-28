@@ -1,6 +1,9 @@
 import random
 import glob
-books = glob.glob('book_*.txt')
+import os
+
+path = os.path.realpath(__file__.replace(__file__, '/'))
+books = glob.glob('*.txt')
 text = open(random.choice(books), 'r').read()
 words = text.split()
 prefix = {}
